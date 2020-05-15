@@ -94,7 +94,7 @@ services:
         networks:
              - proxy.${DOMAIN_NAME}
 networks:
-    proxy.changa.localhost:
+    proxy.example.com:
         driver: overlay
         external: true
         attachable: true
