@@ -1,6 +1,3 @@
-defaultEntryPoints = ["http", "https"]
-logLevel="DEBUG"
-
 [entryPoints]
     [entryPoints.http]
         address = ":80"
@@ -36,11 +33,14 @@ logLevel="DEBUG"
         entryPoint = "http"
 
 [api]
-    entryPoint = "traefik"
     dashboard = true
 
-[docker]
-    domain = "example.com"
-    watch = true
-    exposedByDefault = true
-    swarmMode = false
+[log]
+    level="DEBUG"
+
+[providers]
+    [providers.docker]
+        endpoint = "unix:///var/run/docker.sock"
+        watch = true
+        exposedByDefault = true
+        swarmMode = false
